@@ -1,0 +1,39 @@
+{
+    "name": "GPT3-Bilp",
+    "version": "0.0.1.2",
+    "description": "GPT3-Bilp",
+    "manifest_version": 3,
+    "icons": {
+        "16": "icons/iconA16.png",
+        "48": "icons/iconA48.png",
+        "128": "icons/iconA128.png"
+    },
+    "permissions": [
+        "contextMenus",
+        "storage",
+        "commands"
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "js": [
+                "script.js",
+                "storage.js"
+            ]
+        }
+    ],
+    "action": {
+        "default_popup": "popup.html",
+        "default_title": "GPT3-Bilp"
+    },
+    "commands": {
+        "prompt-on-the-fly": {
+            "suggested_key": {
+                "default": "Alt+P"
+            },
+            "description": "GPT3-Bilp"
+        }
+    }   
+}
