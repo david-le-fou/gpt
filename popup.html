@@ -8,8 +8,9 @@
 </head>
 <body>
     <style>
-        div{
-            width: 300px;
+        div.scren{
+            width: 500px;
+            height: 300px;
         }
         .ok_status_span{
             background-color: green;
@@ -20,12 +21,64 @@
             background-color: red;
             padding: 4px;
         }
+        h2 {
+            text-align: center;
+            color: #56a382;
+            font-size: 30px;
+        }
+        .gpt-text {
+            font-size: 20px;
+            padding: 5px;
+        }
+        .gpt-input input{
+            width: 98%;
+            padding: 5px;
+            font-size: 15px;
+        }
+        .gpt-button button{
+            width: 100%;
+            margin-top: 20px;
+            font-weight: bold;
+            font-size: 15px;
+            background-color: #70a283;
+            border-color: #70a28300;
+        }
+        .statuok {
+    background-color: aquamarine;
+    padding: 0px 2px 0px 21px;
+    border-radius: 14px;
+}
+        .statunonok {
+            background-color: rgb(255, 0, 0);
+            padding: 0px 2px 0px 21px;
+            border-radius: 14px;
+        }       
     </style>
-    <div>
-        API Key: <input type="text" id='api_key'><button id="sockt_apikey">Sync</button> <span id="statut_api_key">0</span>
-        Prompt : <input type="text" id='prompt_gpt'><button id="ajouter_prompt"> Add</button>
+ <div class="gpt-flex scren">
+    <h2>GPT3-BILP</h2>
+    <div class="gpt-text">
+        API Keys:
+        <span id="gpt_status_api"></span>
     </div>
+    <div class="gpt-input">
+        <input type="text" id='api_key' title="Ajouter votre api key ici">
+    </div>
+    <div class="gpt-button">
+        <button id="sockt_apikey">Enregistrer</button> 
+    </div>
+    <div class="gpt-text">
+        Prompt :
+    </div>
+    <div class="gpt-input">
+        <input type="text" id='prompt_gpt' title="Texte ajouter au prompt du GPT3-BILP">
+    </div>
+    <div class="gpt-button">
+        <button id="ajouter_prompt">Enregistrer</button>
+    </div>
+    Récupération de la clé API  <a href="https://beta.openai.com/account/api-keys">ici</a>
+</div>
     
 </body>
 <script src="storage.js"></script>
 </html>
+

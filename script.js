@@ -40,6 +40,7 @@ inputs.forEach(function(input) {
     
     var close = document.getElementById('close_'+nom_varimput);
     var textarea1 = document.getElementById(text_area_diff1);
+    var textarea2 = document.getElementById(text_area_diff2);
     var prompt_use = document.getElementById('prompt_'+nom_varimput);
     var edit = document.getElementById('edit_'+nom_varimput);
     var use = document.getElementById('use_'+nom_varimput);
@@ -67,20 +68,21 @@ inputs.forEach(function(input) {
         if (xhr.readyState === 4) {
             // console.log(xhr.status);
             // if(xhr.status)
-            console.log(JSON.parse(xhr.responseText));
+            var result = JSON.parse(xhr.responseText);
+            textarea2.value = result.choices[0].text.split("\n").join("");;
         }};
-        var data = `{
-        "model": "text-davinci-003",
-        "prompt": "`+prompt_+texte+`",
-        "temperature": 0.7,
-        "max_tokens": 256,
-        "top_p": 1,
-        "frequency_penalty": 0,
-        "presence_penalty": 0
-        }`;
+        var data = {
+            "model": "text-davinci-003",
+            "prompt": prompt_ + texte,
+            "temperature": 0.7,
+            "max_tokens": 256,
+            "top_p": 1,
+            "frequency_penalty": 0,
+            "presence_penalty": 0
+            };
+        xhr.send(JSON.stringify(data));
         // console.log(data);
 
-        xhr.send(data);
 
     }
     //utilisation modif
